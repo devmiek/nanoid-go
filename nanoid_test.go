@@ -28,6 +28,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+const customAlphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz-"
+
 func BenchmarkRead(b *testing.B) {
 	b.SetBytes(21)
 	b.ResetTimer()
@@ -35,6 +37,19 @@ func BenchmarkRead(b *testing.B) {
 		buf := make([]byte, 21)
 		for p.Next() {
 			_, _ = Read(buf)
+		}
+	})
+}
+
+func BenchmarkCustomAlphabetRead(b *testing.B) {
+	r, _ := NewReader(WithAlphabet(customAlphabet))
+
+	b.SetBytes(21)
+	b.ResetTimer()
+	b.RunParallel(func(p *testing.PB) {
+		buf := make([]byte, 21)
+		for p.Next() {
+			_, _ = r.Read(buf)
 		}
 	})
 }
@@ -66,8 +81,6 @@ func TestNewReader(t *testing.T) {
 	_, err := NewReader(WithAlphabet(zeroString))
 	assert.Error(t, err, "Unexpected nil error")
 }
-
-const customAlphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz-"
 
 func TestWithAlphabet(t *testing.T) {
 	reader := newTestReader(t, WithAlphabet(customAlphabet))
@@ -159,8 +172,9 @@ func TestReaderRead(t *testing.T) {
 	assert.Equal(t, len(buf), nr, "Unexpected read size")
 	assert.Equal(t, DefaultAlphabet[:len(buf)], string(buf), "Unexpected read data")
 
-	_, err = reader.Read(nil)
-	assert.Error(t, err, "Unexpected nil error")
+	nr, err = reader.Read(nil)
+	assert.NoError(t, err, "Unexpected error")
+	assert.Equal(t, 0, nr, "Unexpected read size")
 
 	rander.data = nil
 	_, err = reader.Read(buf)

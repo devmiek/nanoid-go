@@ -101,16 +101,16 @@ func (r *Reader) getRandomSize(size int) int {
 	return int(math.Ceil(x))
 }
 
-// Read generates a Nano ID using the alphabet and stores it to the given
-// byte slice, then returns the actual number of bytes generated and any
+// Read generates a new Nano ID to the given byte slice using the default
+// alphabet, then returns the actual number of bytes generated and any
 // errors encountered.
 func (r *Reader) Read(p []byte) (n int, err error) {
 	if len(p) == 0 {
-		return 0, io.ErrShortBuffer
+		return 0, nil
 	}
 
 	if len(r.alphabet) == 0 {
-		_, err = r.rander.Read(p)
+		_, err = io.ReadFull(r.rander, p)
 		if err != nil {
 			return 0, err
 		}
@@ -131,7 +131,7 @@ func (r *Reader) Read(p []byte) (n int, err error) {
 	}
 
 	for {
-		_, err = r.rander.Read(random)
+		_, err = io.ReadFull(r.rander, random)
 		if err != nil {
 			return n, err
 		}
@@ -202,8 +202,8 @@ var defaultReader = &Reader{
 	rander: rand.Reader,
 }
 
-// Read generates a Nano ID using the alphabet and stores it to the given
-// byte slice, then returns the actual number of bytes generated and any
+// Read generates a new Nano ID to the given byte slice using the default
+// alphabet, then returns the actual number of bytes generated and any
 // errors encountered.
 func Read(p []byte) (n int, err error) { return defaultReader.Read(p) }
 

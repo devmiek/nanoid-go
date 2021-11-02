@@ -1,4 +1,4 @@
-# <img src="https://ai.github.io/nanoid/logo.svg" align="right" alt="Nano ID logo by Anton Lovchikov" width="160" height="94"> nanoid-go
+# nanoid-go <img src="https://ai.github.io/nanoid/logo.svg" align="right" alt="Nano ID logo by Anton Lovchikov" width="160" height="94">
 A simple, efficient and secure Nano ID generator implemented in Go.
 
 ## Features
@@ -72,6 +72,9 @@ The function `nanoid.WithRandReader` takes an reader for random number generator
 You can find the command line tools (CLI) at https://github.com/nobody-night/nanoid-cli
 
 With CLI, you can quickly generate one or more Nano ID strings from the command line. Also, you can customize the size and use a custom alphabet.
+
+## Other Programming Languages
+For other programming languages, please visit https://github.com/ai/nanoid#other-programming-languages for more information.
 
 <hr>
 

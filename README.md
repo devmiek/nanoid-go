@@ -7,11 +7,14 @@ A simple, efficient and secure Nano ID generator implemented in Go.
 - Generate Nano ID using custom alphabet.
 - Generate Nano ID using custom random generator.
 
-## Install
-In general, this package is compatible with most modern versions of Go.
+## Installation
 ```bash
 go get -u github.com/nobody-night/nanoid-go
 ```
+In general, this package is compatible with most modern versions of Go.
+
+## Documentation
+The documentation for this package can be found at https://pkg.go.dev/github.com/nobody-night/nanoid-go
 
 ## Getting Started
 In general, we need to generate Nano ID strings with a default size. This is easy to do:

@@ -68,6 +68,24 @@ reader, err := nanoid.NewReader(nanoid.WithRandReader(...))
 ```
 The function `nanoid.WithRandReader` takes an reader for random number generator and returns a reader option. The reader for this random number generator must be compatible with `io.Reader` interface.
 
+## Performance
+### Environment
+We have performed benchmark performance tests on the following environments:
+| Component | Parameters |
+| --------- | ---------- |
+| Processor | Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz |
+| System | Windows / AMD64 |
+| Runtime | Go 1.17.2 |
+
+### Benchmark
+| Method | Size | Alphabet | Time | Objects Allocated |
+| ------ | ---- | -------- | ---- | ----------------- |
+| Reader | 21 | Default | 46.47 ns/op | 0 allocs/op |
+| Reader | 21 | Custom | 65.96 ns/op | 0 allocs/op |
+| String | 21 | Default | 68.77 ns/op | 1 allocs/op |
+
+Please note that the above benchmark performance data may not be up to date.
+
 ## Command Line
 You can find the command line tools (CLI) at https://github.com/nobody-night/nanoid-cli
 

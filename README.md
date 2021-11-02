@@ -1,4 +1,4 @@
-# nanoid-go
+# <img src="https://ai.github.io/nanoid/logo.svg" align="right" alt="Nano ID logo by Anton Lovchikov" width="160" height="94"> nanoid-go
 A simple, efficient and secure Nano ID generator implemented in Go.
 
 ## Features

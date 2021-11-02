@@ -65,6 +65,11 @@ reader, err := nanoid.NewReader(nanoid.WithRandReader(...))
 ```
 The function `nanoid.WithRandReader` takes an reader for random number generator and returns a reader option. The reader for this random number generator must be compatible with `io.Reader` interface.
 
+## Command Line
+You can find the command line tools (CLI) at https://github.com/nobody-night/nanoid-cli
+
+With CLI, you can quickly generate one or more Nano ID strings from the command line. Also, you can customize the size and use a custom alphabet.
+
 <hr>
 
 Released under the [MIT License](LICENSE).

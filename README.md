@@ -78,11 +78,11 @@ We have performed benchmark performance tests on the following environments:
 | Runtime | Go 1.17.2 |
 
 ### Benchmark
-| Method | Size | Alphabet | Time | Objects Allocated |
-| ------ | ---- | -------- | ---- | ----------------- |
-| Reader | 21 | Default | 46.47 ns/op | 0 allocs/op |
-| Reader | 21 | Custom | 65.96 ns/op | 0 allocs/op |
-| String | 21 | Default | 68.77 ns/op | 1 allocs/op |
+| Method | Random | Size | Alphabet | Time | Objects Allocated |
+| ------ | ------ | ---- | -------- | ---- | ----------------- |
+| Reader | Crypto | 21 | Default | 46.47 ns/op | 0 allocs/op |
+| Reader | Crypto |21 | Custom | 65.96 ns/op | 0 allocs/op |
+| String | Crypto | 21 | Default | 68.77 ns/op | 1 allocs/op |
 
 Please note that the above benchmark performance data may not be up to date.
 

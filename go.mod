@@ -1,4 +1,4 @@
-module github.com/nobody-night/nanoid-go
+module github.com/devmiek/nanoid-go
 
 go 1.17
 

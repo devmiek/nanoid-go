@@ -9,12 +9,12 @@ A simple, efficient and secure Nano ID generator implemented in Go.
 
 ## Installation
 ```bash
-go get -u github.com/nobody-night/nanoid-go
+go get -u github.com/devmiek/nanoid-go
 ```
 In general, this package is compatible with most modern versions of Go.
 
 ## Documentation
-The documentation for this package can be found at https://pkg.go.dev/github.com/nobody-night/nanoid-go
+The documentation for this package can be found at https://pkg.go.dev/github.com/devmiek/nanoid-go
 
 ## Getting Started
 In general, we need to generate Nano ID strings with a default size. This is easy to do:
@@ -87,7 +87,7 @@ We have performed benchmark performance tests on the following environments:
 Please note that the above benchmark performance data may not be up to date.
 
 ## Command Line
-You can find the command line tools (CLI) at https://github.com/nobody-night/nanoid-cli
+You can find the command line tools (CLI) at https://github.com/devmiek/nanoid-cli
 
 With CLI, you can quickly generate one or more Nano ID strings from the command line. Also, you can customize the size and use a custom alphabet.
 
